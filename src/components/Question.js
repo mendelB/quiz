@@ -4,11 +4,26 @@ import Choice from './Choice';
 class Question extends Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			answered: false,
+			selectedIndex: null,
+		}
 		this.handleClick = this.handleClick.bind(this)
+		this.calcChoiceState = this.calcChoiceState.bind(this)
 	}
 
 	handleClick(index) {
-		const choice = this.props.choices[index]
+		this.setState({answered: true, selectedIndex: index})
+	}
+
+	calcChoiceState(index) {
+		const correct = index === this.props.correctChoice
+		if (!this.state.answered) return 'active'
+		if (index === this.state.selectedIndex) {
+			return correct ? 'correct' : 'incorrect'
+		} else {
+			return correct ? 'correct' : 'disabled'
+		}
 	}
 
 	render() {
@@ -18,10 +33,12 @@ class Question extends Component {
 				<div className="list-group">
 					{
 						this.props.choices.map((choice,index) => 
-							<Choice 
+							<Choice
+								activeState={this.calcChoiceState(index)}
 								key={index}
 								choice={choice}
-								handleClick={this.handleClick.bind(index)}
+								disabled={this.state.answered}
+								handleClick={this.handleClick.bind(null, index)}
 							/>
 						)
 					}
