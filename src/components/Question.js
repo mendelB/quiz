@@ -12,6 +12,13 @@ class Question extends Component {
 		this.calcChoiceState = this.calcChoiceState.bind(this)
 	}
 
+	componentWillReceiveProps(nextProps) {
+		this.setState({
+			answered: false,
+			selectedIndex: null,
+		})
+	}
+
 	handleClick(index) {
 		this.setState({answered: true, selectedIndex: index})
 	}
@@ -42,7 +49,12 @@ class Question extends Component {
 							/>
 						)
 					}
-				</div>		 
+				</div>	
+				{
+					this.state.answered && this.props.nextQuestion ? 
+						<button className="btn btn-default" onClick={this.props.handleClickNext}>Next</button>
+					: null
+				}	 
 			</div>
 		)
 	}
