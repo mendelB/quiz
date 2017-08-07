@@ -13,6 +13,7 @@ class Question extends Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
+		if (nextProps.question === this.props.question) return
 		this.setState({
 			answered: false,
 			selectedIndex: null,
@@ -21,6 +22,7 @@ class Question extends Component {
 
 	handleClick(index) {
 		this.setState({answered: true, selectedIndex: index})
+		this.props.updateScore(index === this.props.correctChoice)
 	}
 
 	calcChoiceState(index) {

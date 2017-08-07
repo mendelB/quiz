@@ -26,13 +26,19 @@ class App extends Component {
     this.state = {
       questions: [questionDummy, q2],
       currQuestion: 0,
+      score: 0
     }
 
     this.handleClickNext = this.handleClickNext.bind(this)
+    this.updateScore = this.updateScore.bind(this)
   }
 
   handleClickNext() {
     this.setState({currQuestion: this.state.currQuestion+1})
+  }
+
+  updateScore(correct) {
+    if (correct) this.setState({score: this.state.score+1})
   }
 
   render() {
@@ -44,7 +50,8 @@ class App extends Component {
           <h2>Welcome to Quiz!</h2>
         </div>
         <div className="App-intro">
-          <Question question={question.question} choices={question.choices} correctChoice={question.correct_answer} nextQuestion={nextQuestion} handleClickNext={this.handleClickNext}/>
+          <h3>Score: {this.state.score}/{this.state.questions.length}</h3>
+          <Question question={question.question} choices={question.choices} correctChoice={question.correct_answer} nextQuestion={nextQuestion} handleClickNext={this.handleClickNext} updateScore={this.updateScore}/>
         </div>
       </div>
     );
