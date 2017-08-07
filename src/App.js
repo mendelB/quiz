@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
+import Question from './components/Question';
 import logo from './logo.svg';
 import './App.css';
+
+const questionDummy = {
+  question: "Daniel Radcliffe became a global star in the film industry due to his performance in which film franchise?",
+  choices: ["Harry Potter","Ted","Spy Kids","Pirates of the Caribbean "]
+}
 
 class App extends Component {
   render() {
@@ -11,7 +17,7 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+          <Question question={questionDummy.question} choices={questionDummy.choices}/>
         </p>
       </div>
     );
