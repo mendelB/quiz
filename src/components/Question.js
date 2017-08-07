@@ -15,7 +15,7 @@ class Question extends Component {
 		return (
 			<div>
 				<h3>{this.props.question}</h3>
-				<ol>
+				<div className="list-group">
 					{
 						this.props.choices.map((choice,index) => 
 							<Choice 
@@ -25,7 +25,7 @@ class Question extends Component {
 							/>
 						)
 					}
-				</ol>		 
+				</div>		 
 			</div>
 		)
 	}
