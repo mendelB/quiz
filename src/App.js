@@ -16,9 +16,9 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <p className="App-intro">
-          <Question question={questionDummy.question} choices={questionDummy.choices}/>
-        </p>
+        <div className="App-intro">
+          <Question question={questionDummy.question} choices={questionDummy.choices} correctChoice={0}/>
+        </div>
       </div>
     );
   }
