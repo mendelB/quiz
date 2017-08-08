@@ -45,7 +45,7 @@ class App extends Component {
           <h2>Welcome to Quiz!</h2>
           <button className="btn btn-default" onClick={this.getNewQuiz}>Get New Quiz</button>
         </div>
-        <div className="App-intro">
+        <div className="App-body">
           <h3>Score: {this.state.score}/{this.state.questions.length}</h3>
           <h3>Question: {this.state.currQuestion + 1}/{this.state.questions.length}</h3>
           {question ? <Question question={question.question} choices={question.choices} correctChoice={question.correctChoice} nextQuestion={nextQuestion} handleClickNext={this.handleClickNext} updateScore={this.updateScore}/> : null}
