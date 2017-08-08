@@ -16,6 +16,13 @@
 
 .App-intro {
   font-size: large;
+  max-width: 800px;
+  margin: auto;
+  padding: 16px
+}
+
+button.list-group-item {
+  text-align: center;
 }
 
 @keyframes App-logo-spin {
