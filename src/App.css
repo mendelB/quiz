@@ -21,3 +21,14 @@ button.list-group-item {
 }
 
 button:focus {outline:0;}
+
+.scoreboard {
+  border-bottom: 2px solid grey;
+  text-align: center;
+}
+
+.scoreboard p {
+  font-size: 20px;
+  margin: 10px;
+  display: inline;
+}
