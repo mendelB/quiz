@@ -20,7 +20,7 @@ class App extends Component {
 
   getNewQuiz() {
     quizClient.getQuizes().then(questions => {
-      this.setState({questions: questions, score: 0})
+      this.setState({questions: questions, score: 0, currQuestion: 0})
     })
   }
 
