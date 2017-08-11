@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Question from './components/Question';
 import Scoreboard from './components/Scoreboard';
 import quizClient from './utils/quizClient';
+import ReactCSSTransitionReplace from 'react-css-transition-replace';
 import './App.css';
 
 class App extends Component {
@@ -49,7 +50,13 @@ class App extends Component {
         </div>
         <div className="App-body">
           <Scoreboard score={score} questionNumber={questionNumber} questionAmount={this.state.questions.length}/>
-          {question ? <Question question={question.question} choices={question.choices} correctChoice={question.correctChoice} nextQuestion={nextQuestion} handleClickNext={this.handleClickNext} updateScore={this.updateScore}/> : null}
+          {
+            question ? 
+              <ReactCSSTransitionReplace transitionName="carousel-swap">
+                   <Question key={questionNumber} question={question.question} choices={question.choices} correctChoice={question.correctChoice} nextQuestion={nextQuestion} handleClickNext={this.handleClickNext} updateScore={this.updateScore}/> 
+              </ReactCSSTransitionReplace>
+            : null
+          }
         </div>
       </div>
     );
