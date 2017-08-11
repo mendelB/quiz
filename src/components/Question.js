@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
 import Choice from './Choice';
 
+const defaultState = {
+	answered: false,
+	selectedIndex: null,
+}
+
 class Question extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			answered: false,
-			selectedIndex: null,
-		}
+		this.state = defaultState
 		this.handleClick = this.handleClick.bind(this)
 		this.calcChoiceState = this.calcChoiceState.bind(this)
 	}
 
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.question === this.props.question) return
-		this.setState({
-			answered: false,
-			selectedIndex: null,
-		})
+		this.setState(defaultState)
 	}
 
 	handleClick(index) {
