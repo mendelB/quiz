@@ -15,8 +15,7 @@ class Question extends Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		if (nextProps.question === this.props.question) return
-		this.setState(defaultState)
+		nextProps.question === this.props.question ? null : this.setState(defaultState)
 	}
 
 	handleClick(index) {
